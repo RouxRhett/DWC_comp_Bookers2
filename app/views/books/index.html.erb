@@ -1,5 +1,16 @@
+<% if @book && @book.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h3>
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <h2>Books</h2>
-      <table class='table table-hover table-inverse'>
+<table class='table table-hover table-inverse'>
   <thead>
     <tr>
       <th></th>
@@ -8,34 +19,15 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+  
   <tbody>
+    <% @books.each do |book| %>
       <tr>
-        <td><a href="/users/41292">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" />
-</a>        </td>
-        <td><a class="book_32618" href="/books/32618">リーダブルコード</a></td>
-        <td>より良いコードを書くためのシンプルで実践的なテクニック。</td>
+        <td><%= book.user_id %></td>
+        <td><%= link_to book.title, book_path(book) %></td>
+        <td><%= book.body %></td>
       </tr>
-      <tr>
-        <td><a href="/users/41293">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" />
-</a>        </td>
-        <td><a class="book_32619" href="/books/32619">トラブル知らずのシステム設計</a></td>
-        <td>システム設計の要点を図解で説明してくれます。</td>
-      </tr>
-      <tr>
-        <td><a href="/users/41294">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" />
-</a>        </td>
-        <td><a class="book_32620" href="/books/32620">たのしいRuby</a></td>
-        <td>Rubyの入門におすすめです。</td>
-      </tr>
-      <tr>
-        <td><a href="/users/41296">
-          <img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" />
-</a>        </td>
-        <td><a class="book_32621" href="/books/32621">たのしい</a></td>
-        <td>koko</td>
-      </tr>
+    <% end %>
+          <%#<img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" />%>
   </tbody>
 </table>

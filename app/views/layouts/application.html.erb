@@ -23,13 +23,16 @@
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li>
+              <%= link_to '後で消すnew', new_book_path, class:'fas fa-book-new nav-link text-light' %>
+            </li>
+            <li>
               <%= link_to 'Home', root_path, class:'fas fa-home nav-link text-light' %>
             </li>
             <li>
               <%= link_to 'Users', root_path, class:'fas fa-users nav-link text-light' %>
             </li>
             <li>
-              <%= link_to 'Books', root_path, class:'fas fa-book-open nav-link text-light' %>
+              <%= link_to 'Books', books_path, class:'fas fa-book-open nav-link text-light' %>
             </li>
             <li>
               <%= link_to 'Log out', destroy_user_session_path, class:'fas fa-sign-out-alt nav-link text-light', method: :delete %>
@@ -55,7 +58,8 @@
   </header>
 
   <main>
-        <%= yield %>
+    <p id="notice"><%= notice %></p>
+    <%= yield %>
   </main>
 
   <footer>
