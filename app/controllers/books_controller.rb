@@ -10,7 +10,7 @@ class BooksController < ApplicationController
       flash[:notice] = 'You have created book successfully.'
       redirect_to book_path(@book)
     else
-      @books = Book.page(params[:page]).reverse_order
+      index
       render :index
     end
   end
