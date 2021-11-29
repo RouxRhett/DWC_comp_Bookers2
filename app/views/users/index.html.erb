@@ -1,24 +1,25 @@
 <%= render 'books/new', book: @nbook, user: @user  %>
-
-<h2>Users</h2>
-<table class='table table-hover table-inverse'>
-  <thead>
-    <tr>
-      <th>image</th>
-      <th>name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% @users.each do |user| %>
+<div class="col-md-8 offset-md-1">
+  <h2>Users</h2>
+  <table class='table table-hover table-inverse'>
+    <thead>
       <tr>
-        <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format:'jpeg', fallback:"no-image-icon.jpeg" %></td>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user_path(user) %></td>
+        <th>image</th>
+        <th>name</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-    <%= paginate @users%>
-          <%#<img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" />%>
-  </tbody>
-</table>
+    </thead>
+    
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to attachment_image_tag(user, :profile_image, :fill, 40, 40, format:'jpeg', fallback:"no-image-icon.jpeg"), user_path(user) %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to 'Show', user_path(user) %></td>
+        </tr>
+      <% end %>
+      <%= paginate @users%>
+            <%#<img class="attachment user profile_image fallback" src="/assets/no-image-icon-d3f9e11cb2bb284b42e0810f94b03c50126f51f482ea43054b87c2b7ebaa01d5.jpg" />%>
+    </tbody>
+  </table>
+</div>
