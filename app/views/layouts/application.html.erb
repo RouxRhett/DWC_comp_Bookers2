@@ -23,9 +23,6 @@
           <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li>
-              <%= link_to '後で消すnew', new_book_path, class:'fas fa-book-new nav-link text-light' %>
-            </li>
-            <li>
               <%= link_to 'Home', user_path(current_user.id), class:'fas fa-home nav-link text-light' %>
             </li>
             <li>

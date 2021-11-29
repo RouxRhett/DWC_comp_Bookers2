@@ -34,10 +34,14 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.page(params[:page]).reverse_order
+    @nbook = Book.new
+    @user = current_user
   end
 
   def show
     @book = Book.find(params[:id])
+    @nbook = Book.new
+    @user = User.find(@book.user_id)
   end
 
   def destroy

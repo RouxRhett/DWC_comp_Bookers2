@@ -1,27 +1,27 @@
 <h2>User info</h2>
-<%= attachment_image_tag current_user, :profile_image, :fill, 63, 63, format:'jpeg', fallback:"no_image.jpeg" %>
+<%= attachment_image_tag user, :profile_image, :fill, 63, 63, format:'jpeg', fallback:"no_image.jpeg" %>
 <table class='table table-hover table-inverse'>
   <tbody>
   <tr></tr>
   <tr>
     <th>name</th>
-    <th><%= current_user.name %></th>
+    <th><%= user.name %></th>
   </tr>
   <tr>
     <th>introduction</th>
-    <th><%= current_user.introduction %></th>
+    <th><%= user.introduction %></th>
   </tr>
   </tbody>
 </table>
 <div>
-  <%= link_to'user_edit', edit_user_path(current_user) %>
+  <%= link_to'user_edit', edit_user_path(user) %>
 </div>
 
 
 
 <h2>New book</h2>
 
-<%= form_with(model:@book,local: true,class: :new_book,id: :new_book) do |f|%>
+<%= form_with(model:book,local: true,class: :new_book,id: :new_book) do |f|%>
 
 <div class="field">
     <%= f.label :title,"Title"%>
