@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 # DWC_comp_Bookers2
-
+# 課題 7dを選択
